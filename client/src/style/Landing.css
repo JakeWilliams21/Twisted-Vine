@@ -1,0 +1,41 @@
+#landing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    color: white;
+}
+
+.landing-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1E1E1E;
+    padding: 24px 12px;;
+    gap: 24x
+}
+
+.landing-content .left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    width: 45%;
+}
+
+.landing-title {
+    font-size: xx-large;
+    line-height: 200%;
+}
+
+.landing-button {
+    font-family: 'Gelasio', serif;
+    border: solid white;
+    border-width: 2px;;
+    background-color: transparent;
+    padding: 12px 24px;;
+    color: white;
+    font-size: large;
+}
+

@@ -1,0 +1,22 @@
+#navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%
+}
+
+.navbar-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 128px;
+}
+
+#navbar hr {
+    width: 90%;
+}
