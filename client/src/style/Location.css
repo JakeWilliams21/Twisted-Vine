@@ -1,0 +1,46 @@
+#location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    background-color: #1E1E1E;
+    color: white;
+    gap: 256px;
+}
+
+.left img {
+    width: 325px;
+    border: solid white;
+    border-width: 2px;
+}
+
+#location .right {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 24px;
+
+}
+
+.right .title {
+    font-size: x-large;
+    padding-bottom: 24px;;
+}
+
+.right hr {
+    width: 60%;
+}
+
+.hours {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: large;
+}
+
+.hours li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
