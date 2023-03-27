@@ -1,0 +1,40 @@
+#history {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    padding: 24px
+}
+
+.history-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 224px;
+}
+
+#history .title {
+    font-size: xx-large;
+}
+
+#history .subtitle {
+    font-style: italic;
+    padding-bottom: 24px;
+}
+
+#history .left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+    width: 35%;
+}
+
+.left hr {
+    width: 50%
+}
+
+.right img {
+    width: 500px;
+}
+
