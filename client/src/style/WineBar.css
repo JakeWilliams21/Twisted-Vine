@@ -54,10 +54,6 @@
     gap: 24px;
 }
 
-.wine-content .description {
-    overflow: scroll;
-}
-
 .wine-content .name {
     font-size: large;
     font-weight: bold;

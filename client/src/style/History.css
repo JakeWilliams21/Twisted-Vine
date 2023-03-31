@@ -67,7 +67,7 @@
 
 #history .right img {
     width: 300px;
-    animation: fadeIn 1s ease-in
+    animation: fadeIn 4s ease-in
     /* -webkit-box-shadow: 1px 5px 10px -1px rgba(0,0,0,0.75);
     -moz-box-shadow: 1px 5px 10px -1px rgba(0,0,0,0.75);
     box-shadow: 1px 5px 10px -1px rgba(0,0,0,0.75); */
@@ -77,6 +77,11 @@
     0% {
       opacity: 0;
     }
+
+    75% {
+        opacity: 0;
+    }
+
     100% {
       opacity: 1;
     }
