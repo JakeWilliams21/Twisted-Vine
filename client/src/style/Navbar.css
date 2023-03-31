@@ -1,14 +1,64 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css');
+
 #navbar {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%
+    width: 100%;
 }
 
+.sticky {
+    position: fixed;
+    top: 0;
+    background-color: white;
+    z-index: 1000;
+}
+
+.sticky-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 75%;
+}
+
+@keyframes leaveSticky {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes enterSticky {
+    0% {
+        transform: translateY(-200%)
+    }
+
+    100% {
+        transform: translateY(0)
+    }
+}
+
+.sticky-top {
+    max-height: 0; /* Set max-height to 0 when sticky */
+    width: 0; /* Set width to 0 when sticky */
+    overflow: hidden; /* Hide any overflow content */
+  }
+
+.sticky-content img {
+    width: 100px;
+}
 .navbar-top {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.navbar-top img:hover {
+    cursor: pointer;
 }
 
 .navbar-bottom {
@@ -17,6 +67,96 @@
     gap: 128px;
 }
 
-#navbar hr {
-    width: 90%;
+.navbar-bottom span {
+    transition: transform .5s
 }
+
+.navbar-bottom span:hover {
+    cursor: pointer;
+    color: #A62639;
+    transform: translateY(-10%)
+}
+
+#navbar hr {
+    width: 100%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    border: 0;
+    height: 1px;
+}
+
+.hidden {
+    opacity: 0;
+    height: 0;
+    transition: opacity 0.3s, height 0.3s;
+  }
+
+.enterSticky {
+animation: enterSticky 0.5s ease;
+}
+
+.leaveSticky {
+animation: leaveSticky 1s ease;
+}
+
+/* Add this import to the top of your Navbar.css */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css');
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  flex-direction: column;
+  gap: 16px;
+  background-color: white;
+  position: absolute;
+  top: 8%;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  text-align: center;
+}
+
+.mobile-menu span {
+  transition: transform 0.5s;
+}
+
+.mobile-menu span:hover {
+  cursor: pointer;
+  color: #A62639;
+  transform: translateY(-10%);
+}
+
+@media (max-width: 1000px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navbar-bottom {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: flex;
+  }
+
+  .navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+  }
+
+  .navbar-top img {
+    width: 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar-top img {
+    width: 75px;
+  }
+}
+
+  

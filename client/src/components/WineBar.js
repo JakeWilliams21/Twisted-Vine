@@ -38,12 +38,32 @@ const WineBar = () => {
         },
     ])
     const [selectedWineIndex, setSelectedWineIndex] = useState(0)
+    const [fadeIn, setFadeIn] = useState(false);
+
+    useEffect(() => {
+        const autoChangeInterval = setInterval(() => {
+            setSelectedWineIndex((prevIndex) => (prevIndex + 1) % wines.length)
+            triggerFadeIn()
+        }, 5000)
+
+        return () => clearInterval(autoChangeInterval)
+    }, [wines])
+
+    const triggerFadeIn = () => {
+        setFadeIn(true);
+        setTimeout(() => {
+          setFadeIn(false);
+        }, 1000);
+      };
+      
 
     const handleRightButtonClick = () => {
+        triggerFadeIn();
         setSelectedWineIndex((prevIndex) => (prevIndex + 1) % wines.length);
       };
     
       const handleLeftButtonClick = () => {
+        triggerFadeIn()
         setSelectedWineIndex((prevIndex) =>
           prevIndex - 1 < 0 ? wines.length - 1 : prevIndex - 1
         );
@@ -51,21 +71,42 @@ const WineBar = () => {
 
 
   return (
-    <div id = 'wine-bar'>   
-        <span style = {{'fontSize': 'xx-large', 'paddingBottom': '12px'}}>WINE BAR</span>
-        <img src = {winebar} alt = 'Wine Lineup'/>
-        <div className = 'wines'>
-            <div className = 'left-button'>
-                <ChevronLeftIcon className = 'button' onClick = {handleLeftButtonClick}/>
-            </div>
-            <div className = 'wine-content'>
-                <span style = {{'fontSize': 'large', 'fontWeight': 'bold'}}>{wines[selectedWineIndex].name}</span>
-                <span>{wines[selectedWineIndex].description}</span>
-            </div>
-            <div className = 'right-button'>
-                <ChevronRightIcon className = 'button' onClick = {handleRightButtonClick}/>
-            </div>
+    <div id = 'wine-bar' className = 'hide main'>   
+        <div className = 'title'>
+            <span style = {{'fontSize': 'xx-large'}}>WINE BAR</span>
+            <span>Discover Our Weekly Curated Collection: New Arrivals & Cherished Classics</span>
+            <span style = {{'fontStyle': 'italic'}}>March 23rd - 25th</span>
         </div>
+        <div className = 'wines-container'>
+            <div className = 'wines'>
+                {selectedWineIndex ? 
+                <div className = 'left-button'>
+                    <ChevronLeftIcon className = 'button' onClick = {handleLeftButtonClick}/>
+                </div>
+                :
+                <div></div>
+                }
+                
+                <div className = 'wine-content-container'>
+                    <div className={`wine-content ${fadeIn ? "fade-in" : ""}`}>
+                        <span className = 'name'>{wines[selectedWineIndex].name}</span>
+                        <span className = 'description'>{wines[selectedWineIndex].description}</span>
+                        <span style = {{'fontStyle': 'italic', 'color': 'darkgray'}}>{selectedWineIndex + 1}/6</span>
+                    </div>
+                </div>
+            
+                {selectedWineIndex < 5 ? 
+                <div className = 'right-button'>
+                    <ChevronRightIcon className = 'button' onClick = {handleRightButtonClick}/>
+                </div>
+                :
+                <div></div>
+                }
+                
+            </div>
+            <img src = {winebar} alt = 'Wine Lineup'/>
+        </div>
+        
         
     </div>
   )
