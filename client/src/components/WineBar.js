@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import '../style/WineBar.css'
 import winebar from '../images/winebar.jpeg'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -39,14 +39,19 @@ const WineBar = () => {
     ])
     const [selectedWineIndex, setSelectedWineIndex] = useState(0)
     const [fadeIn, setFadeIn] = useState(false);
+    const autoChangeInterval = useRef(null);
+
+    const startInterval = () => {
+        return setInterval(() => {
+          setSelectedWineIndex((prevIndex) => (prevIndex + 1) % wines.length);
+          triggerFadeIn();
+        }, 10000);
+      };
 
     useEffect(() => {
-        const autoChangeInterval = setInterval(() => {
-            setSelectedWineIndex((prevIndex) => (prevIndex + 1) % wines.length)
-            triggerFadeIn()
-        }, 5000)
+        autoChangeInterval.current = startInterval()
 
-        return () => clearInterval(autoChangeInterval)
+        return () => clearInterval(autoChangeInterval.current)
     }, [wines])
 
     const triggerFadeIn = () => {
@@ -60,6 +65,8 @@ const WineBar = () => {
     const handleRightButtonClick = () => {
         triggerFadeIn();
         setSelectedWineIndex((prevIndex) => (prevIndex + 1) % wines.length);
+        clearInterval(autoChangeInterval.current);
+        autoChangeInterval.current = startInterval();
       };
     
       const handleLeftButtonClick = () => {
@@ -67,6 +74,8 @@ const WineBar = () => {
         setSelectedWineIndex((prevIndex) =>
           prevIndex - 1 < 0 ? wines.length - 1 : prevIndex - 1
         );
+        clearInterval(autoChangeInterval.current);
+        autoChangeInterval.current = startInterval();
       };
 
 
@@ -74,7 +83,7 @@ const WineBar = () => {
     <div id = 'wine-bar' className = 'hide main'>   
         <div className = 'title'>
             <span style = {{'fontSize': 'xx-large'}}>WINE BAR</span>
-            <span>Discover Our Weekly Curated Collection: New Arrivals & Cherished Classics</span>
+            <span>Come Discover Our Weekly Curated Collection: New Arrivals & Cherished Classics</span>
             <span style = {{'fontStyle': 'italic'}}>March 23rd - 25th</span>
         </div>
         <div className = 'wines-container'>

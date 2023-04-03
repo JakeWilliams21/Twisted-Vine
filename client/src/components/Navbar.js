@@ -8,6 +8,9 @@ const Navbar = () => {
   const [visible, setVisible] = useState(false)
   const [animation, setAnimation] = useState('')
   const mobileMenuRef = useRef(null)
+  const [activeSection, setActiveSection] = useState('')
+
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +23,7 @@ const Navbar = () => {
       }
  
       setIsSticky(shouldBeSticky);
+      updateActiveSection()
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -56,6 +60,21 @@ const Navbar = () => {
     };
   }, [])
 
+  const updateActiveSection = () => {
+    const sections = ['#location', '#history', '#wine-bar', '#footer'];
+    const offset = document.getElementById('navbar').clientHeight + 20;
+    let newActiveSection = '';
+  
+    sections.forEach((section) => {
+      const element = $(section);
+      if (element.offset().top - offset <= window.scrollY) {
+        newActiveSection = section;
+      }
+    });
+  
+    setActiveSection(newActiveSection);
+  };
+
   const scrollTo = (selector) => {
     const navbarHeight = document.getElementById('navbar').clientHeight;
   
@@ -69,7 +88,7 @@ const Navbar = () => {
     setVisible(false)
   };
 
-  const toggleMenu = () => {
+  const toggleMenu = (event) => {
     setVisible(!visible)
     console.log('clicked');
     console.log(visible);
@@ -83,10 +102,10 @@ const Navbar = () => {
               <img src = {logo} alt = 'Twisted Vine' onClick = {() => scrollTo('#landing')}/>
           </div>
           <div className = 'navbar-bottom'>
-              <span onClick = {() => scrollTo('#location')}>Location</span>
-              <span onClick = {() => scrollTo('#history')}>Our History</span>
-              <span onClick = {() => scrollTo('#wine-bar')}>Wine Bar</span>
-              <span onClick = {() => scrollTo('#footer')}>Contact</span>
+              <span onClick = {() => scrollTo('#location')} className = {activeSection === '#location' ? 'active' : ''}>Location</span>
+              <span onClick = {() => scrollTo('#history')} className = {activeSection === '#history' ? 'active' : ''}>Our History</span>
+              <span onClick = {() => scrollTo('#wine-bar')} className = {activeSection === '#wine-bar' ? 'active' : ''}>Wine Bar</span>
+              <span onClick = {() => scrollTo('#footer')} className = {activeSection === '#footer' ? 'active' : ''}>Contact</span>
           </div>
           <div className="hamburger" onClick={toggleMenu}>
             <i className="fas fa-bars"></i>

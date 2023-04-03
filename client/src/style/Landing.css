@@ -37,16 +37,29 @@
     padding: 12px 24px;;
     color: white;
     font-size: large;
-    transition: transform .5s;
 }
 
 #landing .right img {
-    width: 500px
+    width: 450px
 }
 
 .landing-button:hover {
-    transform: scale(1.05);
+    animation: hover ease-in-out 1.5s infinite;
     cursor: pointer;
+}
+
+@keyframes hover {
+    0% {
+        transform: scale(1)
+    }
+
+    50% {
+        transform: scale(1.1)
+    }
+
+    100% {
+        transform: scale(1)
+    }
 }
 
 @media (max-width: 1000px) {

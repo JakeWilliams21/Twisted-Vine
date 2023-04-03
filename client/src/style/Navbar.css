@@ -71,6 +71,12 @@
     transition: transform .5s
 }
 
+.navbar-bottom span.active {
+  color: #A62639;
+  transform: translateY(-10%);
+}
+
+
 .navbar-bottom span:hover {
     cursor: pointer;
     color: #A62639;

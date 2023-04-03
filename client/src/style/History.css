@@ -1,7 +1,6 @@
 #history {
     display: flex;
     flex-direction: column;
-    gap: 12px;
     align-items: center;
     padding: 24px;
     padding-bottom: 48px;
@@ -14,7 +13,6 @@
     gap: 10%;
     padding: 0 24px;
     color: white;
-    background-color: #f8f1c9;
     width: 80%;
 }
 
@@ -31,13 +29,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 36px;
+    gap: 18px;
     width: 35%;
     justify-content: flex-start;
     padding-top: 48px;
-    color: #1f1f1f;
-    background-color: #f8f1c9;
-    padding: 48px;
+    color: white;
+    padding: 48px 64px;
+    background-color: #A62639;
     /* -webkit-box-shadow: -2px 5px 10px -1px rgba(0,0,0,0.75);
     -moz-box-shadow: -2px 5px 10px -1px rgba(0,0,0,0.75);
     box-shadow: -2px 5px 10px -1px rgba(0,0,0,0.75); */
@@ -48,7 +46,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    background-color: #f8f1c9;
     padding: 48px;
 }
 
@@ -62,12 +59,12 @@
 
 #history .left hr {
     width: 50%;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
 }
 
 #history .right img {
     width: 300px;
-    animation: fadeIn 4s ease-in
+    animation: fadeIn 3s ease-in
     /* -webkit-box-shadow: 1px 5px 10px -1px rgba(0,0,0,0.75);
     -moz-box-shadow: 1px 5px 10px -1px rgba(0,0,0,0.75);
     box-shadow: 1px 5px 10px -1px rgba(0,0,0,0.75); */
@@ -78,7 +75,7 @@
       opacity: 0;
     }
 
-    75% {
+    80% {
         opacity: 0;
     }
 
@@ -88,8 +85,8 @@
   }
 
 .left img {
-    width: 400px;
-    border: solid black;
+    width: 350px;
+    border: solid white;
     border-width: 5px;
 }
 
@@ -113,7 +110,7 @@
 
 .poster img {
     width: 300px;
-    border: solid #1f1f1f;
+    border: solid white;
     border-width: 5px;
 }
 

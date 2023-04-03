@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     color: white;
-    background-color: #f8f1c9;
+    background-color: #1f1f1f;
 }
 
 .footer-content {
@@ -12,7 +12,7 @@
     justify-content: space-between;
     width: 80%;
     padding: 48px;
-    color: black;
+    color: white;
 }
 
 .footer-form {
@@ -86,11 +86,11 @@
 }
 
 .hours hr {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
     border: 0;
     height: 1px;
     margin: 12px 0;
-    width: 50%;
+    width: 100%;
 }
 
 .hours li {
@@ -117,5 +117,15 @@
         width: 100%;
     }
 
+    .footer-form {
+        width: 60%;
+    }
 
+
+}
+
+@media (max-width: 600px) {
+    .footer-form {
+        width: 80%;
+    }
 }
