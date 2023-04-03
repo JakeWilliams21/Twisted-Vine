@@ -59,7 +59,6 @@
 
 .left .title {
     font-size: x-large;
-    padding-bottom: 24px;;
 }
 
 .left hr {
@@ -120,20 +119,17 @@
         padding: 48px 0;
     }
 
-    #location .right {
-        padding: 64px 0;
-    }
 }
 
 @media (max-width: 600px) {
     .location-content {
         flex-direction: column;
         justify-content: space-between;
-        gap: 12px;
+        gap: 6px;
         padding: auto;
         padding-left: 8px;
         padding-right: 8px;
-        width: 90%;
+        width: 80%;
     }
 
     #location {
@@ -160,10 +156,16 @@
         width: 90%;
         border: none;
         gap: 12px;
-        padding: 48px 0;
+        padding: 36px 6px;
     }
 
-    #location .right {
-        padding: 64px 0;
+    .left .title {
+        font-size: 20px;
     }
+
+    #location .hours {
+        font-size: medium;
+    }
+
+
 }
