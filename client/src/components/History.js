@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import '../style/History.css'
 import building from '../images/building.webp'
-import posters from '../images/posters.webp'
 import empty from '../images/empty.webp'
 import chianti from '../images/chianti.webp'
 import noch from '../images/noch.webp'
