@@ -36,7 +36,6 @@ function App() {
         <WineBar/>
         <Footer/>
       </div>
-      
     </div>
   );
 }

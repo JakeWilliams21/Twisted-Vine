@@ -6,7 +6,8 @@ body {
   font-family: 'Gelasio', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #FDF9F9;
+  /* background-color: #FDF9F9; */
+  background-image: url('./images/33268434_jol5.jpg');
 }
 
 code {

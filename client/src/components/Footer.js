@@ -43,6 +43,7 @@ const Footer = () => {
                 </div>
             </div>
         </div>
+        <span className = 'attribute'><a href="https://www.freepik.com/free-vector/background-leaf-pattern-design-template_33268434.htm">Image by AndreaCharlesta</a> on Freepik</span>
     </div>
   )
 }
