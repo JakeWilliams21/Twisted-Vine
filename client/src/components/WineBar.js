@@ -1,39 +1,39 @@
 import React, {useState, useEffect, useRef} from 'react'
 import '../style/WineBar.css'
-import winebar from '../images/winebar.jpeg'
+import winebar from '../images/winebar(2).jpg'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 const WineBar = () => {
     const [wines, setWines] = useState([
         {
-            name: 'Famille Vincent Cremant de Bourgogne (Burgundy, France)',
-            description: '100% Chardonnay. The Vincent Family have been the owners of Chateau Fuisse since 1862. Limestone/clayt and pebble soil. Hand-harvested. Green apple, citrus, hint of almond. Creamy palate, dry, crisp finish',
+            name: 'New: Michel & Tina Gassier Blanc De Blancs Brut (Southern Rhone)',
+            description: '100% Grenache Blanc. Certified organic. Galets pebble soil atop ancient seabed chalk. Indigenous yeast. 6 months lees aging in French oak. White floral aromas, peaches and green apple with hint of almond. Dry, with a minerally finish!',
+            price: 24.99
+        },
+        {
+            name: 'New: Domaine du Petit Metris Clos de la Marche Savennièes (Loire Valley)',
+            description: '100% Chenin Blanc. Situated in le Grand Beauvais hameau, in the heart of the Chaume appellation and run by 5th generation winemaker Joseph Renou and his two sons, Pascal and Herve. 30+ Year-old -vines grown in shale, aeolian sands, and spilite soils. Hand-harvested with oak barrel aging. Stone fruit and citrus, richness on palate and dry, wet rock finish! Stunning!',
             price: 29.99
         },
         {
-            name: 'Deux Roches "Tradition" Macon-Villages (Burgundy, France)',
-            description: '100% Chardonnay. Limestone and clay-silty soils. Sees some oak and lees aging. Peaches, golden apple, limes zest, white pepper, flinty finish.',
-            price: 22.99
+            name: 'New: Maison Lispaul Sancerre (Loire Valley)',
+            description: '100% Sauvignon Blanc. Family estate located in the town of Tracy sur Loire. Sustainable farming. 30-year-old-vines in clay and flint soils. Lees aging. Citrus flavors with a fresh, flinty finish. Classic!',
+            price: 36.99
         },
         {
-            name: 'Teleda Dilao Dry Amber Wine (Kisskhevi, Republic of Georgia)',
-            description: 'Rkatsiteli, Mtsvane. Georgia has been making wine for over 8000 years and considered the birthplace of wine. This blend is made of two indigenous grapes and is aged in large clay jars buried under the ground, called Qvevri. One month skin contact makes this more of an orange wine. Peaches, mint, pine. Chewy on the palate with a zesty finish.',
-            price: 14.99
+            name: 'Domaine Gueneau Chavignolet Sancerre Rosé (Loire Valley,)',
+            description: '100% Pinot Noir.  From woman winemaker Elisa Gueneau. Sustainable farming. 35-year-old-vines grown in caillottes and limestone soils. Strawberry and citrus with a chalky finish. Delicious!',
+            price: 29.99
         },
         {
-            name: 'Le Grand Bouqueteau Chinon Rose (Loire Valley, France)',
-            description: '100% Cabernet Franc. Named for a lieudit next to the cellar. Bing cherry, raspberry and citrus flavors, with white pepper and savory herbs. Lovely minerality on the finish. Delicious!',
-            price: 18.99
-        },
-        {
-            name: 'Erich Sattler St. Laurent (Burgenland, Austria)',
-            description: '100% St. Laurent. Erich, 4th generation to run the estate, has been at the head since 1999. Sustainable and organic farming practices. Gravel soil. 40+ year-old-vines. Hand-harvested. Stainless steel and large neutral casks aging. An offspring of Pinot Noir. Dark berry and cherry flavors, with silky tannins and hint of spiciness. Fresh and elegant!',
+            name: 'New: Jean-Marc Lafont Domaine de Bel-Air Briante Brouilly (Beaujolais)',
+            description: '100% Gamay. The domaine sits on top of Bel-Air Hill overlooking Beajeu and has been run by winemaker Jean-Marc Lafont and his wife Annick since 1985. 55+ year-old-vines in clay and loamy soils with schist and granite. Sees older barrel aging. Hand-harvested and semi-carbonic. Elegant, brambly fruit, mineral-driven finish! Heavenly!',
             price: 19.99
         },
         {
-            name: `Anne Amie Vineyards Winemaker's Selection Pinot Noir. (Willamette Valley, Oregon)`,
-            description: 'Salmon Safe and LIVE certified. Vineyards are located in Yamhill-Carlton district and Chehalem Mountains. Hand-harvested. Aged on lees in French new and used oak barrels for 10 months. Cherry, pomegranate, blueberry, baking spice. Earthy tannins and refreshing acidity!',
+            name: `J.L. Chave Mon Coeur Cotes-du-Rhone (Southern Rhone, France)`,
+            description: 'Grenache, Syrah, Mourvèdre/Cinsault. The Chave family have been growing vines since 1481. 20–60-year-old-vines sourced from Visan, Vinsobres, Cairanne, and Rasteau. Organic farming. A wine of elegance, power, and finesse. Luscious!',
             price: 27.99
         },
     ])
@@ -84,36 +84,30 @@ const WineBar = () => {
         <div className = 'title'>
             <span style = {{'fontSize': 'xx-large'}}>WINE BAR</span>
             <span>Come Discover Our Weekly Curated Collection: New Arrivals & Cherished Classics</span>
-            <span style = {{'fontStyle': 'italic'}}>March 23rd - 25th</span>
+            <span style = {{'fontStyle': 'italic'}}>April 6 - 9, 2023</span>
         </div>
         <div className = 'wines-container'>
             <div className = 'wines'>
-                {selectedWineIndex ? 
-                <div className = 'left-button'>
+                <div className = {`left-button ${selectedWineIndex ? '' : 'hide-button'}`}>
                     <ChevronLeftIcon className = 'button' onClick = {handleLeftButtonClick}/>
                 </div>
-                :
-                <div></div>
-                }
+
                 
                 <div className = 'wine-content-container'>
                     <div className={`wine-content ${fadeIn ? "fade-in" : ""}`}>
                         <span className = 'name'>{wines[selectedWineIndex].name}</span>
                         <span className = 'description'>{wines[selectedWineIndex].description}</span>
-                        <span style = {{'fontStyle': 'italic', 'color': 'darkgray'}}>{selectedWineIndex + 1}/6</span>
+                        <span>${wines[selectedWineIndex].price}/bottle</span>
+                        <span style = {{'fontStyle': 'italic', 'color': 'darkgray', 'fontSize': 'small'}}>{selectedWineIndex + 1}/6</span>
                     </div>
                 </div>
             
-                {selectedWineIndex < 5 ? 
-                <div className = 'right-button'>
+                <div className = {`right-button ${selectedWineIndex < 5 ? '' : 'hide-button'}`}>
                     <ChevronRightIcon className = 'button' onClick = {handleRightButtonClick}/>
                 </div>
-                :
-                <div></div>
-                }
                 
             </div>
-            <img src = {winebar} alt = 'Wine Lineup'/>
+            <img className = 'winebar-img' src = {winebar} alt = 'Wine Lineup'/>
         </div>
         
         
