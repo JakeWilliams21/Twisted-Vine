@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import InstagramIcon from '@mui/icons-material/Instagram';
 import EmailIcon from '@mui/icons-material/Email';
 import '../style/Footer.css'
+import FacebookIcon from '@mui/icons-material/Facebook';
 
 const Footer = () => {
     const [firstName, setFirstName] = useState('')
@@ -38,8 +39,9 @@ const Footer = () => {
             <div className = 'right'>
                 <span>Connect with Us!</span>
                 <div className = 'socials'>
-                    <InstagramIcon/>
-                    <EmailIcon/>
+                    <a href = 'https://www.instagram.com/thetwistedvine614/'><InstagramIcon/></a>
+                    <a href = 'https://www.facebook.com/thetwistedvine/'><FacebookIcon/></a>
+                    <a href = 'mailto:thetwistedvine@breezelineohio.net'><EmailIcon/></a>
                 </div>
             </div>
         </div>
